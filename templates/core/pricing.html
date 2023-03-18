@@ -41,7 +41,6 @@
 	          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="#" class="nav-link">Pricing</a></li>
 	          <li class="nav-item "><a href="{% url 'car' %}" class="nav-link">Cars</a></li>
-
 	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
 				{% if user.is_authenticated %}
                 <li class="nav-item"><a href="#" class="nav-link">Welcome {{user.username}}</a></li>
@@ -49,6 +48,7 @@
 								{% else %}
                 <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Customer Login</a></li>
                 <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Dealer login</a></li>
+                <li class="nav-item"><a href="{% url 'user_register' %}" class="nav-link">Register</a></li>
 	                            {% endif %}
 	        </ul>
 	      </div>
