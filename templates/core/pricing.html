@@ -28,19 +28,19 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
   <body>
-
+    
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/">Car<span>Sharing</span></a>
+	      <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
-	          <li class="nav-item active"><a href="#" class="nav-link">Cars</a></li>
+	          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="#" class="nav-link">Pricing</a></li>
+	          <li class="nav-item "><a href="{% url 'car' %}" class="nav-link">Cars</a></li>
 
 	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
 				{% if user.is_authenticated %}
@@ -55,59 +55,97 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-
+    
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ft-co-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Choose Your Car</h1>
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Pricing <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Pricing</h1>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="ftco-section ftco-cart">
+			<div class="container">
+				<div class="row">
 
-		<section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row">
-				{% for car in cars %}
-    			<div class="col-md-4">
-    				<div class="car-wrap rounded ft-co-animate">
-    					<div class="img rounded d-flex align-items-end" style="background-image: url({{car.image.url}});">
-    					</div>
-    					<div class="text">
-    						<h2 class="mb-0"><a href="{% static 'car-single.html' ">{{car.name}}</a></h2>
-    						<div class="d-flex mb-3">
-	    						<span class="cat">{{car.brandname}}</span>
-	    						<p class="price ml-auto">₹ {{car.price}} <span>/day</span></p>
-    						</div>
-    						<p class="d-flex mb-0 d-block"><a href="{% url 'car_book' %}" class="btn btn-primary py-2 mr-1">Book now</a> <a href="{% url 'car_single' %}" class="btn btn-secondary py-2 ml-1">Details</a></p>
-    					</div>
-    				</div>
+    			<div class="col-md-12 ftco-animate">
+    				<div class="car-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>
+						        <th class="bg-primary heading">Per Hour Rate</th>
+						        <th class="bg-dark heading">Per Day Rate</th>
+						        <th class="bg-black heading">Leasing</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+                           {% for car in cars %}
+
+						      <tr class="">
+
+						      	<td class="car-image"><div class="img" style="background-image:url({{car.image.url}});"></div></td>
+						        <td class="product-name">
+						        	<h3>{{car.brandname}} {{car.name}}</h3>
+						        	<p class="mb-0 rated">
+						        		<span>rated:</span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        	</p>
+						        </td>
+
+						        
+						            <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">₹</small> 8000</span>
+							        		<span class="per">/per hour</span>
+							        	</h3>
+							        	<span class="subheading">₹240/hour fuel surcharges</span>
+						        	</div>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">₹</small> {{car.price}}</span>
+							        		<span class="per">/per day</span>
+							        	</h3>
+							        	<span class="subheading">₹240/hour fuel surcharges</span>
+						        </div>
+						        </td>
+
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">₹</small> 50000</span>
+							        		<span class="per">/per month</span>
+							        	</h3>
+							        	<span class="subheading">₹240/hour fuel surcharges</span>
+							        </div>
+						        </td>
+
+						      </tr><!-- END TR-->
+                            {% endfor %}
+						    </tbody>
+						  </table>
+					  </div>
     			</div>
-				{% endfor %}
-
 
     		</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>
+			</div>
+		</section>
 
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -143,7 +181,7 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">Sector 4, Vikas Nagar, Koparkhairane, Navi Mumbai, Maharashtra 400709</span></li>
+	                 <li><span class="icon icon-map-marker"></span><span class="text">Sector 4, Vikas Nagar, Koparkhairane, Navi Mumbai, Maharashtra 400709</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 1234567890</span></a></li>
 	                <li><a href="mailto:admin@gmail.com"><span class="icon icon-envelope"></span><span class="text">admin@gmail.com</span></a></li>
 	              </ul>
@@ -161,14 +199,12 @@
         </div>
       </div>
     </footer>
+    
+  
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-
-  <!-- loader -->
-   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="{% static 'js/jquery.min.js' %}"></script>
+ <script src="{% static 'js/jquery.min.js' %}"></script>
   <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
