@@ -41,6 +41,7 @@
 	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
 	          <li class="nav-item"><a href="{% url 'car' %}" class="nav-link">Cars</a></li>
+                <li class="nav-item"><a href="{% url 'add_car' %}" class="nav-link">Add Cars</a></li>
 
 	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
                 {% if user.is_authenticated %}
@@ -192,9 +193,9 @@
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
 	          	<span class="subheading">About us</span>
-	            <h2 class="mb-4">Welcome to Carbook</h2>
+	            <h2 class="mb-4">Welcome to CarSharing</h2>
 
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	            <p>Car Sharing means the practice where a number of people share the use of one or more cars that are owned by a profit or non-profit car-sharing organization and where such </p>
 	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	            <p><a href="{% url 'car' %}" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
 	          </div>
@@ -217,7 +218,7 @@
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Wedding Ceremony</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Why buy an expensive car when you can use a super affordable wedding car rental service on your special day!</p>
               </div>
             </div>
 					</div>
@@ -226,7 +227,7 @@
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">City Transfer</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Now travel from one city to another in car without worrying about price.Rent a car now!</p>
               </div>
             </div>
 					</div>
@@ -235,7 +236,7 @@
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Airport Transfer</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>CarSharing offers a service that will take you to your destination directly from the airport.</p>
               </div>
             </div>
 					</div>
@@ -244,7 +245,7 @@
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Whole City Tour</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Want to explore a city with your family and avoid paying high cab prices!Rent a car now!We can also arrange a driver for your trip. </p>
               </div>
             </div>
 					</div>
@@ -252,7 +253,7 @@
 			</div>
 		</section>
 
-
+<!--
     <section class="ftco-section testimony-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5">
@@ -324,7 +325,7 @@
         </div>
       </div>
     </section>
-
+-->
 
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -351,6 +352,7 @@
               <h2 class="ftco-heading-2">Customer Support</h2>
               <ul class="list-unstyled">
                 <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                  <!--  <li><a href="/static/FAQ.pdf" class="py-2 d-block">FAQ</a></li>  -->
                 <li><a href="#" class="py-2 d-block">Contact Us</a></li>
               </ul>
             </div>
