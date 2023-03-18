@@ -5,7 +5,7 @@ urlpatterns = [
     path('user_login', views.user_login, name="user_login"),
     path('user_register', views.user_register, name="user_register"),
     path('user_logout', views.user_logout, name="user_logout"),
-  #  path('dealer_login', views.dealer_login, name="dealer_login"),
-   # path('dealer_register', views.dealer_register, name="dealer_register"),
-    #path('dealer_logout', views.dealer_logout, name="dealer_logout"),
+    path('dealer_login', views.dealer_login, name="dealer_login"),
+    path('dealer_register', views.dealer_register, name="dealer_register"),
+    path('dealer_logout', views.dealer_logout, name="dealer_logout"),
 ]

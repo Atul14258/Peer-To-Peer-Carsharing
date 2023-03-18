@@ -47,8 +47,7 @@
 								<li class="nav-item"><a href="{% url 'user_logout' %}" class="nav-link">Logout</a></li>
 								{% else %}
                 <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Customer Login</a></li>
-                <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Dealer login</a></li>
-                <li class="nav-item"><a href="{% url 'user_register' %}" class="nav-link">Register</a></li>
+                <li class="nav-item"><a href="{% url 'dealer_login' %}" class="nav-link">Dealer login</a></li>
 	                            {% endif %}
 	        </ul>
 	      </div>
@@ -107,10 +106,10 @@
 						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
 						        	<div class="price-rate">
 							        	<h3>
-							        		<span class="num"><small class="currency">₹</small> 8000</span>
+							        		<span class="num"><small class="currency">₹</small>{{car.price_per_hr}}</span>
 							        		<span class="per">/per hour</span>
 							        	</h3>
-							        	<span class="subheading">₹240/hour fuel surcharges</span>
+							        	<span class="subheading">₹{{car.fuel_price}}/Km fuel charges</span>
 						        	</div>
 						        </td>
 						        
@@ -118,10 +117,10 @@
 						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
 						        	<div class="price-rate">
 							        	<h3>
-							        		<span class="num"><small class="currency">₹</small> {{car.price}}</span>
+							        		<span class="num"><small class="currency">₹</small> {{car.price_per_day}}</span>
 							        		<span class="per">/per day</span>
 							        	</h3>
-							        	<span class="subheading">₹240/hour fuel surcharges</span>
+							        	<span class="subheading">₹{{car.fuel_price}}/Km fuel charges</span>
 						        </div>
 						        </td>
 
@@ -129,10 +128,10 @@
 						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
 						        	<div class="price-rate">
 							        	<h3>
-							        		<span class="num"><small class="currency">₹</small> 50000</span>
-							        		<span class="per">/per month</span>
+							        		<span class="num"><small class="currency">₹</small>{{car.price_per_week}}</span>
+							        		<span class="per">/per week</span>
 							        	</h3>
-							        	<span class="subheading">₹240/hour fuel surcharges</span>
+							        	<span class="subheading">₹{{car.fuel_price}}/Km fuel charges</span>
 							        </div>
 						        </td>
 

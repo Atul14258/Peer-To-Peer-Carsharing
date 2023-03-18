@@ -5,6 +5,7 @@ from core.models import *
 
 
 admin.site.register(Customer)
+admin.site.register(Dealer)
 admin.site.register(Car)
 admin.site.register(Contact_us)
 
