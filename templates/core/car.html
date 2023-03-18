@@ -39,8 +39,6 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
 	          <li class="nav-item active"><a href="#" class="nav-link">Cars</a></li>
 
@@ -49,7 +47,7 @@
                 <li class="nav-item"><a href="#" class="nav-link">Welcome {{user.username}}</a></li>
 								<li class="nav-item"><a href="{% url 'user_logout' %}" class="nav-link">Logout</a></li>
 								{% else %}
-                <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Customer Login</a></li>
                 <li class="nav-item"><a href="{% url 'user_register' %}" class="nav-link">Register</a></li>
 	                            {% endif %}
 	        </ul>
@@ -119,11 +117,6 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2"><a href="/" class="logo">Car<span>Sharing</span></a></h2>
               <p>Car sharing and donating your car are two environmentally friendly ways to help your community.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
             </div>
           </div>
           <div class="col-md">
@@ -133,8 +126,6 @@
                 <li><a href="#" class="py-2 d-block">About</a></li>
                 <li><a href="#" class="py-2 d-block">Services</a></li>
                 <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
-                <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
-                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
               </ul>
             </div>
           </div>
@@ -143,9 +134,6 @@
               <h2 class="ftco-heading-2">Customer Support</h2>
               <ul class="list-unstyled">
                 <li><a href="#" class="py-2 d-block">FAQ</a></li>
-                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
-                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
-                <li><a href="#" class="py-2 d-block">How it works</a></li>
                 <li><a href="#" class="py-2 d-block">Contact Us</a></li>
               </ul>
             </div>
@@ -157,7 +145,7 @@
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Sector 4, Vikas Nagar, Koparkhairane, Navi Mumbai, Maharashtra 400709</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 1234567890</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">admin@gmail.com</span></a></li>
+	                <li><a href="mailto:admin@gmail.com"><span class="icon icon-envelope"></span><span class="text">admin@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

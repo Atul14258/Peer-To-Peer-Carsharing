@@ -14,6 +14,7 @@ class Customer(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Car(models.Model):
     name = models.CharField(max_length=100)
     brandname = models.CharField(max_length=100,null='false')
