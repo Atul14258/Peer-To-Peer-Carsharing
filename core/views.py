@@ -5,18 +5,28 @@ from core.models import Contact_us, Car
 
 # Create your views here.
 def index(request):
-    return render(request,'core/index.html')
+    cars = Car.objects.all()
+    return render(request,'core/index.html',{'cars':cars})
 
 def car(request):
     cars = Car.objects.all()
     return render(request,'core/car.html',{'cars':cars})
 
-def car_single(request):
-    return render(request,'core/car_single.html')
+def car_single(request,id):
+
+    car=Car.objects.get(id=id)
+    cars = Car.objects.all()
+    data={}
+    data['car']=car
+    data['cars']=cars
+    return render(request,'core/car_single.html',data)
 
 def pricing(request):
     cars = Car.objects.all()
+
     return render(request,'core/pricing.html',{'cars':cars})
+def add_car(request):
+    return render(request,'core/add_car.html')
 
 def car_book(request):
     return render(request,'core/car_book.html')

@@ -27,128 +27,70 @@
     <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
-  <body>
-    
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark ft-co_navbar bg-dark ft-co-navbar-light" id="ft-co-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+	      <a class="navbar-brand" href="/">Car<span>Sharing</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
+             <div class="collapse navbar-collapse" id="ft-co-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="#" class="nav-link">Pricing</a></li>
-	          <li class="nav-item "><a href="{% url 'car' %}" class="nav-link">Cars</a></li>
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="{% url 'car' %}" class="nav-link">Cars</a></li>
+                <li class="nav-item"><a href="{% url 'add_car' %}" class="nav-link">Add Cars</a></li>
+
 	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
-				{% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                 <li class="nav-item"><a href="#" class="nav-link">Welcome {{user.username}}</a></li>
 								<li class="nav-item"><a href="{% url 'user_logout' %}" class="nav-link">Logout</a></li>
 								{% else %}
                 <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Customer Login</a></li>
-                <li class="nav-item"><a href="{% url 'dealer_login' %}" class="nav-link">Dealer login</a></li>
+                <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Dealer login</a></li>
 	                            {% endif %}
 	        </ul>
 	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
-    
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Pricing <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Pricing</h1>
-          </div>
+            </div>
+     </nav>
+
+<div class="container">
+<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    <div class="row mt-2">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Car Name</i></label>
+            <input type="text" class="form-control" name="car_name" placeholder="Name of the Car">
         </div>
-      </div>
-    </section>
+    </div>
 
-    <section class="ftco-section ftco-cart">
-			<div class="container">
-				<div class="row">
+    <div class="row mt-3">
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">City</i></label>
+            <input type="text" class="form-control" name="city" placeholder="City">
+        </div>
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">Car Image</i></label>
+            <input type="file" class="form-control" name="image">
+        </div>
+    </div>
 
-    			<div class="col-md-12 ftco-animate">
-    				<div class="car-list">
-	    				<table class="table">
-						    <thead class="thead-primary">
-						      <tr class="text-center">
-						        <th>&nbsp;</th>
-						        <th>&nbsp;</th>
-						        <th class="bg-primary heading">Per Hour Rate</th>
-						        <th class="bg-dark heading">Per Day Rate</th>
-						        <th class="bg-black heading">Leasing</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-                           {% for car in cars %}
+    <div class="row mt-3">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Capacity</i></label>
+            <input type="number" class="form-control" name="capacity" placeholder="Number of Seats">
+        </div>
+    </div>
 
-						      <tr class="">
+    <div class="row mt-3">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Rent</i></label>
+            <input type="number" class="form-control" name="rent" placeholder="Rent (per day)">
+        </div>
+    </div>
 
-						      	<td class="car-image"><div class="img" style="background-image:url({{car.image.url}});"></div></td>
-						        <td class="product-name">
-						        	<h3>{{car.brandname}} {{car.name}}</h3>
-                                    <!--
-						        	<p class="mb-0 rated">
-						        		<span>rated:</span>
-						        		<span class="ion-ios-star"></span>
-						        		<span class="ion-ios-star"></span>
-						        		<span class="ion-ios-star"></span>
-						        		<span class="ion-ios-star"></span>
-						        		<span class="ion-ios-star"></span>
-						        	</p>
-						        	-->
-						        </td>
-
-						        
-						            <td class="price">
-						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
-						        	<div class="price-rate">
-							        	<h3>
-							        		<span class="num"><small class="currency">₹</small>{{car.price_per_hr}}</span>
-							        		<span class="per">/per hour</span>
-							        	</h3>
-							        	<span class="subheading">₹{{car.fuel_price}}/Km fuel charges</span>
-						        	</div>
-						        </td>
-						        
-						        <td class="price">
-						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
-						        	<div class="price-rate">
-							        	<h3>
-							        		<span class="num"><small class="currency">₹</small> {{car.price_per_day}}</span>
-							        		<span class="per">/per day</span>
-							        	</h3>
-							        	<span class="subheading">₹{{car.fuel_price}}/Km fuel charges</span>
-						        </div>
-						        </td>
-
-						        <td class="price">
-						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
-						        	<div class="price-rate">
-							        	<h3>
-							        		<span class="num"><small class="currency">₹</small>{{car.price_per_week}}</span>
-							        		<span class="per">/per week</span>
-							        	</h3>
-							        	<span class="subheading">₹{{car.fuel_price}}/Km fuel charges</span>
-							        </div>
-						        </td>
-
-						      </tr><!-- END TR-->
-                            {% endfor %}
-						    </tbody>
-						  </table>
-					  </div>
-    			</div>
-
-    		</div>
-			</div>
-		</section>
-
-
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+  </div>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -182,7 +124,7 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                 <li><span class="icon icon-map-marker"></span><span class="text">Sector 4, Vikas Nagar, Koparkhairane, Navi Mumbai, Maharashtra 400709</span></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Sector 4, Vikas Nagar, Koparkhairane, Navi Mumbai, Maharashtra 400709</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 1234567890</span></a></li>
 	                <li><a href="mailto:admin@gmail.com"><span class="icon icon-envelope"></span><span class="text">admin@gmail.com</span></a></li>
 	              </ul>
@@ -200,12 +142,14 @@
         </div>
       </div>
     </footer>
-    
-  
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
- <script src="{% static 'js/jquery.min.js' %}"></script>
+
+  <!-- loader -->
+   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
   <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
