@@ -17,6 +17,8 @@ def car_single(request):
 def pricing(request):
     cars = Car.objects.all()
     return render(request,'core/pricing.html',{'cars':cars})
+def add_car(request):
+    return render(request,'core/add_car.html')
 
 def car_book(request):
     return render(request,'core/car_book.html')
