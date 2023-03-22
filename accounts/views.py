@@ -27,6 +27,8 @@ def user_login(request):
 def user_register(request):
     if request.method == "POST":
         username = request.POST.get('username')
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
@@ -43,7 +45,7 @@ def user_register(request):
                 else:
                     user = User.objects.create_user(username=username, email=email, password=password)
                     user.save()
-                    data = Customer(user=user, phone_field=phone)
+                    data = Customer(user=user,firstname=firstname,lastname=lastname,email=email, phone_field=phone)
                     data.save()
 
                     # Code for login of user will come here
@@ -100,7 +102,7 @@ def dealer_register(request):
                     messages.info(request, "Email already exist!")
                     return redirect('dealer_register')
                 else:
-                    dealer = User.objects.create_user(username=username,firstname=firstname,lastname=lastname, email=email, password=password)
+                    dealer = User.objects.create_user(username=username, password=password)
                     dealer.save()
                     data = Dealer(user=dealer,firstname=firstname,lastname=lastname,email=email, phone_field=phone)
                     data.save()

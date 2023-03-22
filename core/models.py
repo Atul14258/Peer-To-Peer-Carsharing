@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 class Customer(models.Model):
 
     user = models.OneToOneField(User,null=False,blank=False,on_delete=models.CASCADE)
-
-
+    firstname = models.CharField(default=False, max_length=100)
+    lastname = models.CharField(default=False, max_length=100)
+    email = models.EmailField(default=False, max_length=50)
     phone_field = models.CharField(max_length=12,blank=False)
 
 
@@ -15,7 +16,7 @@ class Customer(models.Model):
 class Dealer(models.Model):
 
     user = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
-    firstname = models.CharField(blank=False, max_length=100)
+    firstname = models.CharField(default=False, max_length=100)
     lastname = models.CharField(default=False, max_length=100)
     email = models.EmailField(default=False, max_length=50)
     phone_field = models.CharField(max_length=12,blank=False)
