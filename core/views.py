@@ -21,6 +21,16 @@ def car_single(request,id):
     data['cars']=cars
     return render(request,'core/car_single.html',data)
 
+def search(request):
+    query = request.GET['query']
+    car = Car.objects.filter(name__icontains = query)
+    context = {
+        "car":car,
+    }
+    return render(request,'core/search.html',context)
+
+
+
 def pricing(request):
     cars = Car.objects.all()
 

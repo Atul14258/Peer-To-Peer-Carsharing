@@ -37,12 +37,35 @@ class Car(models.Model):
     luggage= models.IntegerField(default=0)
     transmission = models.CharField(default=False,max_length=100)
     fuel_type = models.CharField(default=False,max_length=100)
-
-
     image = models.ImageField(upload_to='images/')
+
+    radio=models.BooleanField(default=False)
+    bags = models.BooleanField(default=False)
+    carkit = models.BooleanField(default=False)
+    childseat = models.BooleanField(default=False)
+    ac = models.BooleanField(default=False)
+    roof = models.BooleanField(default=False)
+    bluetooth = models.BooleanField(default=False)
+    tis = models.BooleanField(default=False)
+    #tis-touchscreen infotainment system
+
 
     def __str__(self):
         return self.name
+
+class Feature(models.Model):
+    radio = models.BooleanField(default=False)
+    bags = models.BooleanField(default=False)
+    carkit = models.BooleanField(default=False)
+    childseat = models.BooleanField(default=False)
+    ac = models.BooleanField(default=False)
+    roof = models.BooleanField(default=False)
+    bluetooth = models.BooleanField(default=False)
+    tis = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
 
 
 class Contact_us(models.Model):
