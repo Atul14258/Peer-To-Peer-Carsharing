@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
@@ -81,103 +84,57 @@
       </div>
     </div>
 
-  <section class="ft-co-section ft-co-no-pt bg-light">
-    	<div class="container">
-    		<div class="row no-gutters">
-    			<div class="col-md-12	featured-top">
-    				<div class="row no-gutters">
-	  					<div class="col-md-4 d-flex align-items-left">
+  <div class="container mt-3">
+  <h3>Form Validation</h3>
+  <p>Try to submit the form.</p>
 
-                            <form action="POST" class="request-form ft-co-animate bg-primary">
-		          		<h2>Personal Details</h2>
-			    				<div class="form-group">
-			    					<label  class="label">First Name</label>
-			    					<input type="text" class="form-control" placeholder="firstname">
-			    				</div>
-			    				<div class="form-group">
-			    					<label  class="label">Last Name</label>
-			    					<input type="text" class="form-control" placeholder="lastname">
-			    				</div>
-			    				<div class="d-flex">
-			    					<div class="form-group mr-2">
-			                <label  class="label">Email ID</label>
-			                <input type="email" class="form-control" id="email" placeholder="email">
-			              </div>
-			              <div class="form-group ml-2">
-			                <label  class="label">Contact</label>
-			                <input type="number" class="form-control" id="number" placeholder="phone">
-			              </div>
-		              </div>
-		              <div class="form-group">
-		                <label  class="label">Address</label>
-		                <input type="text" class="form-control" id="address" placeholder="address">
-		              </div>
-                       <hr>
-		          		<h2>Make your trip</h2>
-			    				<div class="form-group">
-			    					<label  class="label">Pick-up location</label>
-			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
-			    				</div>
-			    				<div class="form-group">
-			    					<label  class="label">Drop-off location</label>
-			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
-			    				</div>
-			    				<div class="d-flex">
-			    					<div class="form-group mr-2">
-			                <label  class="label">Pick-up date</label>
-			                <input type="text" class="form-control" id="book_pick_date" placeholder="Date">
-			              </div>
-			              <div class="form-group ml-2">
-			                <label  class="label">Drop-off date</label>
-			                <input type="text" class="form-control" id="book_off_date" placeholder="Date">
-			              </div>
-		              </div>
-		              <div class="form-group">
-		                <label  class="label">Pick-up time</label>
-		                <input type="text" class="form-control" id="time_pick" placeholder="Time">
-		              </div>
-			            <div class="form-group">
-			              <input type="submit" value="Confirm Booking" class="btn btn-secondary py-3 px-4">
-			            </div>
-			    			</form>
-	  					</div>
-	  					<div class="col-md-8 d-flex align-items-center">
-	  						<div class="services-wrap rounded-right w-100">
-	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
-	  							<div class="row d-flex mb-4">
-					          <div class="col-md-4 d-flex align-self-stretch ft-co-animate">
-					            <div class="services w-100 text-center">
-				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
-				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Choose Your Pickup Location</h3>
-				                </div>
-					            </div>
-					          </div>
-					          <div class="col-md-4 d-flex align-self-stretch ft-co-animate">
-					            <div class="services w-100 text-center">
-				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
-				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Select the Best Deal</h3>
-					              </div>
-					            </div>
-					          </div>
-					          <div class="col-md-4 d-flex align-self-stretch ft-co-animate">
-					            <div class="services w-100 text-center">
-				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
-				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Reserve Your Rental Car</h3>
-					              </div>
-					            </div>
-					          </div>
-					        </div>
+  <form action="/action_page.php" class="was-validated">
+    <div class="mb-3 mt-3">
+      <label for="uname" class="form-label">Username:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="address" class="form-label">Address:</label>
+      <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="contact_no" class="form-label">Contact Number:</label>
+      <input type="number" class="form-control" id="contact_no" placeholder="Enter contact number" name="contact_no" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="drop-off" class="form-label">Drop-off location:</label>
+      <input type="text" class="form-control" id="drop-off" placeholder="Enter drop-off location" name="drop-off" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="timepd" class="form-label">Time Period:</label>
+      <input type="number" class="form-control" id="timepd" placeholder="Enter the time-period" name="timepd" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+          <input list="period2" name="period" id="period">
+          <datalist id="period2">
+            <option value="Per hour">
+            <option value="Per day">
+            <option value="Per week">
+          </datalist>
+    </div>
 
-	  						</div>
-	  					</div>
-	  				</div>
-				</div>
-  		</div>
-        </div>
-    </section>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="myCheck"  name="remember" required>
+      <label class="form-check-label" for="myCheck">I agree about the information entered above.</label>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Check this checkbox to continue.</div>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
 
 
 
