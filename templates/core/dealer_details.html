@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Car Sharing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+  </head>
+    <meta charset="UTF-8">
+    <title>Car Sharing</title>
+</head>
+<body>
+
+ <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/">Car<span>Sharing</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="{% url 'car' %}" class="nav-link">Cars</a></li>
+
+	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="#" class="nav-link">Welcome {{user.username}}</a></li>
+								<li class="nav-item"><a href="{% url 'user_logout' %}" class="nav-link">Logout</a></li>
+								{% else %}
+                <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Customer Login</a></li>
+                <li class="nav-item"><a href="{% url 'user_login' %}" class="nav-link">Dealer login</a></li>
+	                            {% endif %}
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url({% static 'images/bg_1.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+          <div class="col-lg-8 ft-co-animate">
+          	<div class="text w-100 text-center mb-md-5 pb-md-5">
+	            <h1 class="mb-4">Fast &amp; Easy Way To Rent A Car</h1>
+	            <p style="{% static 'font-size: 18px' %};">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
+	            <a href="{% static 'https://vimeo.com/45830194' %}" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+	            	<div class="icon d-flex align-items-center justify-content-center">
+	            		<span class="ion-ios-play"></span>
+	            	</div>
+	            	<div class="heading-title ml-5">
+		            	<span>Easy steps for renting a car</span>
+	            	</div>
+	            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <section class="ft-co-section ft-co-no-pt bg-light">
+    	<div class="container">
+    		<div class="row no-gutters">
+    			<div class="col-md-12	featured-top">
+    				<div class="row no-gutters">
+	  					<div class="col-md-4 d-flex align-items-center">
+
+                            <form action="POST" class="request-form ft-co-animate bg-primary">
+		          		<h2>Personal Details</h2>
+			    				<div class="form-group">
+			    					<label  class="label">Name</label>
+			    					<input type="text" class="form-control" placeholder="name">
+			    				</div>
+			    				<div class="form-group">
+			    					<label  class="label">BrandName</label>
+			    					<input type="text" class="form-control" placeholder="brandname">
+			    				</div>
+			    				<div class="d-flex">
+			    					<div class="form-group mr-2">
+			                <label  class="label">P</label>
+			                <input type="email" class="form-control" id="email" placeholder="email">
+			              </div>
+			              <div class="form-group ml-2">
+			                <label  class="label">Contact</label>
+			                <input type="number" class="form-control" id="number" placeholder="phone">
+			              </div>
+		              </div>
+		              <div class="form-group">
+		                <label  class="label">Address</label>
+		                <input type="text" class="form-control" id="address" placeholder="address">
+		              </div>
+                       <hr>
+		          		<h2>Make your trip</h2>
+			    				<div class="form-group">
+			    					<label  class="label">Pick-up location</label>
+			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+			    				</div>
+			    				<div class="form-group">
+			    					<label  class="label">Drop-off location</label>
+			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+			    				</div>
+			    				<div class="d-flex">
+			    					<div class="form-group mr-2">
+			                <label  class="label">Pick-up date</label>
+			                <input type="text" class="form-control" id="book_pick_date" placeholder="Date">
+			              </div>
+			              <div class="form-group ml-2">
+			                <label  class="label">Drop-off date</label>
+			                <input type="text" class="form-control" id="book_off_date" placeholder="Date">
+			              </div>
+		              </div>
+		              <div class="form-group">
+		                <label  class="label">Pick-up time</label>
+		                <input type="text" class="form-control" id="time_pick" placeholder="Time">
+		              </div>
+			            <div class="form-group">
+			              <input type="submit" value="Confirm Booking" class="btn btn-secondary py-3 px-4">
+			            </div>
+			    			</form>
+	  					</div>
+	  					<div class="col-md-8 d-flex align-items-center">
+	  						<div class="services-wrap rounded-right w-100">
+	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
+	  							<div class="row d-flex mb-4">
+					          <div class="col-md-4 d-flex align-self-stretch ft-co-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Choose Your Pickup Location</h3>
+				                </div>
+					            </div>
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ft-co-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Select the Best Deal</h3>
+					              </div>
+					            </div>
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ft-co-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Reserve Your Rental Car</h3>
+					              </div>
+					            </div>
+					          </div>
+					        </div>
+
+	  						</div>
+	  					</div>
+	  				</div>
+				</div>
+  		</div>
+        </div>
+    </section>
+
+
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"><a href="/" class="logo">Car<span>Sharing</span></a></h2>
+              <p>Car sharing and donating your car are two environmentally friendly ways to help your community.</p>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Services</a></li>
+                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Sector 4, Vikas Nagar, Koparkhairane, Navi Mumbai, Maharashtra 400709</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 1234567890</span></a></li>
+	                <li><a href="mailto:admin@gmail.com"><span class="icon icon-envelope"></span><span class="text">admin@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+  <!-- loader -->
+   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  <script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false' %}"></script>
+  <script src="{% static 'js/google-map.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>
